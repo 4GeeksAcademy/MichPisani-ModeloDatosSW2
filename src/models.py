@@ -96,8 +96,8 @@ class Planets (db.Model):
 class Favourites (db.Model):
     __tablename__="favourite" 
 
-    id: Mapped[int] = mapped_column(primary_key=True)
-    user_id: Mapped[int] = mapped_column(db.ForeignKey("user.id"), primary_key=True, nullable=False)
+    id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
+    user_id: Mapped[int] = mapped_column(db.ForeignKey("user.id"), nullable=False)
     planet_id: Mapped[int] = mapped_column(db.ForeignKey("planet.id"), nullable=True)
     vehicle_id: Mapped[int] = mapped_column(db.ForeignKey("vehicle.id"), nullable=True)
     character_id: Mapped[int] = mapped_column(db.ForeignKey("character.id"), nullable=True)
